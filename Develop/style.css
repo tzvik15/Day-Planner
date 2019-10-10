@@ -6,11 +6,13 @@ body {
 
 textarea{
   background: transparent;
+  background-color:black;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  outline:0;
 }
 
 .jumbotron {
@@ -63,7 +65,9 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
-  margin-top:10px;
+  margin-left:750px;
+  margin-top: -60px;
+  /* margin-top:10px; */
   
 }
 
@@ -73,13 +77,13 @@ textarea{
 }
 
 .form-control {
-  margin-left:50px;
-  margin-top:-20px;
+  margin-left:-20px;
+  /* margin-top:-10px; */
   background: transparent;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
-  width:90%;
+  width:70%;
 }
