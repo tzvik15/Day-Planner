@@ -39,29 +39,50 @@ $("#cell9").click(function (){
 })
 
 //a function that will get called on page load that imports the data from local storage into the text field
-var remember = function() {
-    var refill1 = localStorage.one;
-    $("#fill1").val(refill1);
-    var refill2 = localStorage.two;
-    $("#fill2").val(refill2);
-    var refill3 = localStorage.three;
-    $("#fill3").val(refill3);
-    var refill4 = localStorage.four;
-    $("#fill4").val(refill4);
-    var refill5 = localStorage.five;
-    $("#fill5").val(refill5);
-    var refill6 = localStorage.six;
-    $("#fill6").val(refill6);
-    var refill7 = localStorage.seven;
-    $("#fill7").val(refill7);
-    var refill8 = localStorage.eight;
-    $("#fill8").val(refill8);
-    var refill9 = localStorage.nine;
-    $("#fill9").val(refill9);
+ var remember = function() {
+    var fillList = ["#fill1", "#fill2", "#fill3", "#fill4", "#fill5", "#fill6", "#fill7", "#fill8", "#fill9"];
+    var storeList = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    var refill = [1,2,3,4,5,6,7,8,9];
+    for (var j=0; j<fillList.length; j++){
+        var k = j+1;
+        var test = "refill" + k;  
+        
+        
+        
+       var past = (localStorage.storeList[j]);
+        $(fillList[j]).val(test);
+    }}
+    // var refill1 = localStorage.one;
+    // $("#fill1").val(refill1);
+    // var refill2 = localStorage.two;
+    // $("#fill2").val(refill2);
+    // var refill3 = localStorage.three;
+    // $("#fill3").val(refill3);
+    // var refill4 = localStorage.four;
+    // $("#fill4").val(refill4);
+    // var refill5 = localStorage.five;
+    // $("#fill5").val(refill5);
+    // var refill6 = localStorage.six;
+    // $("#fill6").val(refill6);
+    // var refill7 = localStorage.seven;
+    // $("#fill7").val(refill7);
+    // var refill8 = localStorage.eight;
+    // $("#fill8").val(refill8);
+    // var refill9 = localStorage.nine;
+    // $("#fill9").val(refill9);
 }
 
-if (moment("9am", "h:mma").isBefore(now)) {
-    $("#testing").attr("class", "past");
+function colors() {
+    var t = moment().format("H");
+    var textFields = ["#time1", "#time2", "#time3", "#time4", "#time5", "#time6", "#time7", "#time8", "#time9"];
+    for (var i=0; i<textFields.length; i++) {
+        var compareTime = i+9;
+    if (t<compareTime) {
+        $(textFields[i]).attr("class", "future");
+    } else if (t > compareTime) {
+        $(textFields[i]).attr("class", "past");
+    } else $(textFields[i]).attr("class", "present");
+    }
 }
-
+colors();
 remember();
