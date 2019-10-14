@@ -1,7 +1,6 @@
 //global variables
 var now = moment();
 
-
 //a function that displays and updates the time dynamically (the function call is built into the setInterval command)
 var update = function() {
     $("#currentDay").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
@@ -9,7 +8,6 @@ var update = function() {
 setInterval(update, 1000);
 
 //a set of click events tied to the individual buttons that save the text in the textarea to local storage
-
 $("#cell1").click(function (){
     localStorage.one = ($("#fill1").val());
 })
@@ -40,18 +38,6 @@ $("#cell9").click(function (){
 
 //a function that will get called on page load that imports the data from local storage into the text field
  var remember = function() {
-    // var fillList = ["#fill1", "#fill2", "#fill3", "#fill4", "#fill5", "#fill6", "#fill7", "#fill8", "#fill9"];
-    // var storeList = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-    // var refill = [1,2,3,4,5,6,7,8,9];
-    // for (var j=0; j<fillList.length; j++){
-    //     var k = j+1;
-    //     var test = "refill" + k;  
-        
-        
-        
-    //    var past = (localStorage.storeList[j]);
-    //     $(fillList[j]).val(test);
-    // }}
     var refill1 = localStorage.one;
     $("#fill1").val(refill1);
     var refill2 = localStorage.two;
@@ -72,6 +58,7 @@ $("#cell9").click(function (){
     $("#fill9").val(refill9);
 }
 
+//a function that loops through the textfields, compares them to the actual time, and assigns them the appropriate class depending on time of day
 function colors() {
     var t = moment().format("H");
     var textFields = ["#time1", "#time2", "#time3", "#time4", "#time5", "#time6", "#time7", "#time8", "#time9"];
@@ -84,5 +71,7 @@ function colors() {
     } else $(textFields[i]).attr("class", "present");
     }
 }
+
+//load function on page load
 colors();
 remember();
